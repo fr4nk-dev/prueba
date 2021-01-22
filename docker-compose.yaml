@@ -16,5 +16,5 @@ services:
       context: ./DemoApi
       dockerfile: Dockerfile
     expose:
-      - "443"
+      - "5000"
     restart: always
