@@ -8,10 +8,9 @@ services:
     ports:
       - "8080:443"
     restart: always
-
-  api:
     depends_on:
-      - reverseproxy
+      - api
+  api:
     build:
       context: ./DemoApi
       dockerfile: Dockerfile
