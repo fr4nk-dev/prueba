@@ -5,6 +5,8 @@ services:
     build:
       context: ./Nginx
       dockerfile: Dockerfile
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
     ports:
       - "8080:443"
     restart: always
@@ -17,3 +19,25 @@ services:
     expose:
       - "5000"
     restart: always
+
+  #   services:
+
+  # reverseproxy:
+  #   build:
+  #     context: ./Nginx
+  #     dockerfile: Nginx.Dockerfile
+  #   volumes:
+  #     - /etc/letsencrypt:/etc/letsencrypt
+  #   ports:
+  #     - "80:80"
+  #     - "8080:443"
+  #   restart: always
+  #   depends_on:
+  #     - api
+  # api:
+  #   build:
+  #     context: ./HelloAspNetCore3.Api
+  #     dockerfile: Api.Dockerfile
+  #   expose:
+  #     - "5000"
+  #   restart: always
